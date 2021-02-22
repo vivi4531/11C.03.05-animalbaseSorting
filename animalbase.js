@@ -24,7 +24,7 @@ function start( ) {
     document.querySelector("[data-sort=name]").addEventListener("click", sortAnimalsAfterName); 
     document.querySelector("[data-sort=type]").addEventListener("click", sortAnimalsAfterType); 
     document.querySelector("[data-sort=desc]").addEventListener("click", sortAnimalsAfterDescription); 
-    //document.querySelector("[data-sort=age]").addEventListener("click", sortAnimalsAfterAge); 
+    document.querySelector("[data-sort=age]").addEventListener("click", sortAnimalsAfterAge); 
 
     loadJSON();
 }
@@ -147,6 +147,23 @@ function compareByDesc(a,b){
 }
 
 //Sorting by age 
+function sortAnimalsAfterAge(){
+    console.log("Click on sort by age"); 
+    allAnimals.sort(compareByage); 
+    displayList(allAnimals); 
+}
+
+function compareByage(a,b){
+    //Ascending
+    console.log(`Look at ${a.age} and ${b.age}`); 
+    if(a.age < b.age){
+        console.log(`${a.age} should come first`);
+        return -1; 
+    } else {
+        console.log(`${b.age} should come first`);
+        return 1; 
+    }
+}
 
 
 function displayList(animals) {
