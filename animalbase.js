@@ -86,45 +86,23 @@ function showAllAnimals(){
 }
 
 function sortAnimalsAfterName(){
-    console.log("Animals sorted alfabetical after name"); 
-    if (event.target.dataset.sortDirection === "asc") {
-        event.target.dataset.sortDirection = "desc";
-        console.log("Animals sorted ascending by name")
-        nameAsc();
+    console.log("Click on sort by name"); 
+    allAnimals.sort(compareByName); 
+    displayList(allAnimals); 
+}
+
+function compareByName(a,b){
+    console.log(`Look at ${a.name} and ${b.name}`); 
+    if(a.name < b.name){
+        console.log(`${a.name} should come first`);
+        return -1; 
     } else {
-        console.log("Animals sorted descnding by name")
-        nameDesc();
-        event.target.dataset.sortDirection = "asc";
+        console.log(`${b.name} should come first`);
+        return 1; 
     }
-    }
-    //condition - ascending
-    function nameAsc(){
-        console.log(allAnimals)
-        function compareName(a, b){
-        if(a.name < b.name) {
-        //A before B
-        return -1;
-        } else if (a.name > b.name){
-        //A after B
-        return 1;
-        }
-        }   
-        allAnimals.sort(compareName)
-        displayList(allAnimals)
-      }
-    //condition - descending
-    function nameDesc(){
-        console.log(allAnimals)
-        function compareName(a, b){
-        if(a.name < b.name) {
-        return 1;
-        } else if (a.name > b.name){
-        return -1;
-        }
-        }   
-        allAnimals.sort(compareName)
-        displayList(allAnimals)
-      }
+}
+
+
 
 function displayList(animals) {
     // clear the list
