@@ -22,6 +22,9 @@ function start( ) {
     document.querySelector("[data-filter=all]").addEventListener("click", showAllAnimals); 
 
     document.querySelector("[data-sort=name]").addEventListener("click", sortAnimalsAfterName); 
+    document.querySelector("[data-sort=type]").addEventListener("click", sortAnimalsAfterType); 
+    document.querySelector("[data-sort=desc]").addEventListener("click", sortAnimalsAfterDescription); 
+    //document.querySelector("[data-sort=age]").addEventListener("click", sortAnimalsAfterAge); 
 
     loadJSON();
 }
@@ -85,6 +88,7 @@ function showAllAnimals(){
     displayList(allAnimals); 
 }
 
+//Sorting by name
 function sortAnimalsAfterName(){
     console.log("Click on sort by name"); 
     allAnimals.sort(compareByName); 
@@ -92,6 +96,7 @@ function sortAnimalsAfterName(){
 }
 
 function compareByName(a,b){
+    //Ascending
     console.log(`Look at ${a.name} and ${b.name}`); 
     if(a.name < b.name){
         console.log(`${a.name} should come first`);
@@ -102,6 +107,46 @@ function compareByName(a,b){
     }
 }
 
+//Sorting by type
+function sortAnimalsAfterType(){
+    console.log("Click on sort by type"); 
+    allAnimals.sort(compareBytype); 
+    displayList(allAnimals); 
+}
+
+function compareBytype(a,b){
+    //Ascending
+    console.log(`Look at ${a.type} and ${b.type}`); 
+    if(a.type < b.type){
+        console.log(`${a.type} should come first`);
+        return -1; 
+    } else {
+        console.log(`${b.type} should come first`);
+        return 1; 
+    }
+}
+
+
+//Sorting by description 
+function sortAnimalsAfterDescription(){
+    console.log("Click on sort by description"); 
+    allAnimals.sort(compareByDesc); 
+    displayList(allAnimals); 
+}
+
+function compareByDesc(a,b){
+    //Ascending
+    console.log(`Look at ${a.desc} and ${b.desc}`); 
+    if(a.desc < b.desc){
+        console.log(`${a.desc} should come first`);
+        return -1; 
+    } else {
+        console.log(`${b.desc} should come first`);
+        return 1; 
+    }
+}
+
+//Sorting by age 
 
 
 function displayList(animals) {
