@@ -149,11 +149,11 @@ function compareByDesc(a,b){
 //Sorting by age 
 function sortAnimalsAfterAge(){
     console.log("Click on sort by age"); 
-    allAnimals.sort(compareByage); 
+    allAnimals.sort(compareByAge); 
     displayList(allAnimals); 
 }
 
-function compareByage(a,b){
+function compareByAge(a,b){
     //Ascending
     console.log(`Look at ${a.age} and ${b.age}`); 
     if(a.age < b.age){
